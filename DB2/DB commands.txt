@@ -1,0 +1,8 @@
+계정 생성
+create user scott identified by tiger
+default tablespace users temporary tablespace temp;
+
+계정 상태 변경
+alter user scott account unlock;--계정 잠금해제
+alter user scott identified by tiger;--비밀번호 변경
+alter user scott identified by tiger account unlock;--비번,계정해제
