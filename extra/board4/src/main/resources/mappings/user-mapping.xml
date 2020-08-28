@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="UserDAO">
+ 
+ 	<select id="getUser" parameterType="user" resultType="user">
+ 		<![CDATA[
+ 			select * from users where id=#{id} and password=#{password}
+ 		]]>
+ 	</select>
+ 	
+ 	<insert id="registerUser" parameterType="user">
+ 		<![CDATA[
+ 			insert into users values(#{id},#{password},#{name},#{role})
+ 		]]>
+ 	</insert>
+ 
+ 	<select id="getRoles" resultType="role">
+ 		<![CDATA[
+ 			select * from roles
+ 		]]>
+ 	</select>
+ 	
+ 	<update id="updateUser" parameterType="user">
+ 		<![CDATA[
+ 			update users set name=#{name},role=#{role} where id=#{id}
+ 		]]>
+ 	</update>
+ 	
+ 	<delete id="deleteUser" parameterType="java.lang.String">
+ 		<![CDATA[
+ 			delete users where id=#{id}
+ 		]]>
+ 	</delete>
+ 
+ </mapper>
